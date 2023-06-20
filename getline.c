@@ -1,4 +1,4 @@
-#include "monty.c"
+#include "monty.h"
 
 /**
  * calc_size - calculate the buffer
@@ -44,6 +44,7 @@ ssize_t _getline(char **line, size_t *n, FILE *file)
 			free(buffer);
 			return (-1);
 		}
+		ch = (char)check;
 		if (check == 0 && input != 0)
 		{
 			input++;
