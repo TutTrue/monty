@@ -33,6 +33,7 @@ void execute_instruction(Data *data)
 		{
 			data->str = str;
 			ops[i].f(data->stack, data->line_number);
+			free(str);
 			return;
 		}
 		i++;
