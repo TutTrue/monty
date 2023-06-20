@@ -62,6 +62,7 @@ typedef struct data_s
 } Data;
 extern Data global_data;
 
+ssize_t _getline(char **line, size_t *n, FILE *file);
 /* -------------- basic ops -------------*/
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);

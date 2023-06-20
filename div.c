@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * div - div first 2 element of the stack
+ * _div - div first 2 element of the stack
  * @stack: ...
  * @line_number: ...
  */
@@ -27,5 +27,5 @@ void _div(stack_t **stack, unsigned int line_number)
 	temp = (*stack)->n;
 	(*stack) = (*stack)->next;
 	(*stack)->n /= temp;
-       free(cur);	
+	free(cur);
 }

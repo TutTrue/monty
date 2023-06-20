@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * sup - sub first 2 element of the stack
+ * sub - sub first 2 element of the stack
  * @stack: ...
  * @line_number: ...
  */
@@ -20,5 +20,5 @@ void sub(stack_t **stack, unsigned int line_number)
 	temp = (*stack)->n;
 	(*stack) = (*stack)->next;
 	(*stack)->n -= temp;
-	free(cur);	
+	free(cur);
 }
