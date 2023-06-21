@@ -1,5 +1,7 @@
-push 
-push 12
-push dfasd
-push 21
 pall
+push 0 
+    push        3
+push 2
+push 1
+pall
+asdjaks

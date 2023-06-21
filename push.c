@@ -16,14 +16,16 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(global_data.stack);
 		fclose(global_data.file);
+		free(global_data.line);
 		exit(EXIT_FAILURE);
 	}
 	if (!atoi(global_data.str) && global_data.str[0] != '0')
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		if (global_data.stack)
-			free_stack(global_data.stack);
+		free_stack(global_data.stack);
 		fclose(global_data.file);
+		free(global_data.line);
+		free(new_node);
 		exit(EXIT_FAILURE);
 	}
 	num = atoi(global_data.str);

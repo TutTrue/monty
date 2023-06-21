@@ -9,7 +9,7 @@ void free_stack(stack_t **top)
 {
 	stack_t *cur = *top;
 
-	if (!*top)
+	if (!*top || !top)
 		return;
 	while (cur)
 	{
