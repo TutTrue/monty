@@ -2,7 +2,7 @@
 #define MONTY_H
 #define BUFSIZE 1024
 
-#define GNU_SOURCE
+#define _GNU_SOURCE
 
 #include <stdio.h>
 #include <stdlib.h>

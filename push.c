@@ -22,7 +22,8 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		printf("%d", is_digits(global_data.str));
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		free_stack(global_data.stack);
+		if (global_data.stack)
+			free_stack(global_data.stack);
 		fclose(global_data.file);
 		exit(EXIT_FAILURE);
 	}

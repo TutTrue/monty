@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	}
 	global_data.file = file;
 	global_data.stack = &stack;
-	while (_getline(&line, &len, file) != -1)
+	while (getline(&line, &len, file) != -1)
 	{
 		global_data.line = line;
 		global_data.line_number = line_number++;

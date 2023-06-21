@@ -17,3 +17,4 @@ int is_digits(char *str)
 	}
 	return (1);
 }
+
