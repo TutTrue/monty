@@ -20,7 +20,6 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	if (!atoi(global_data.str) && global_data.str[0] != '0')
 	{
-		printf("%d", is_digits(global_data.str));
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		if (global_data.stack)
 			free_stack(global_data.stack);

@@ -20,7 +20,7 @@ void execute_instruction(Data *data)
 		{"rotr", rotr}, {NULL, NULL}
 	};
 	op = strtok(data->line, " \n\t");
-	str = strtok(NULL, " ");
+	str = strtok(NULL, " \n\t");
 	if (op == NULL)
 		return;
 	else if (op[0] == '#')
@@ -31,7 +31,9 @@ void execute_instruction(Data *data)
 	{
 		if (strcmp(op, ops[i].opcode) == 0)
 		{
-			data->str = str;
+			printf("%s", str);
+			data->str = str ? str : "e";
+			printf("%s", data->str);
 			ops[i].f(data->stack, data->line_number);
 			/*free(str);*/
 			return;

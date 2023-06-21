@@ -1,4 +1,4 @@
-push 1
+push 
 push 12
 push dfasd
 push 21
