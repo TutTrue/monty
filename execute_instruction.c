@@ -31,9 +31,7 @@ void execute_instruction(Data *data)
 	{
 		if (strcmp(op, ops[i].opcode) == 0)
 		{
-			printf("%s", str);
 			data->str = str ? str : "e";
-			printf("%s", data->str);
 			ops[i].f(data->stack, data->line_number);
 			/*free(str);*/
 			return;
