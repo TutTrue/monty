@@ -9,7 +9,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *cur, *last;
 
-	if (!*stack || !stack)
+	if (!*stack || !stack || !(*stack)->next)
 		return;
 	cur = *stack;
 	last = *stack;
