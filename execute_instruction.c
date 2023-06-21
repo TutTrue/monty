@@ -23,7 +23,7 @@ void execute_instruction(Data *data)
 	str = strtok(NULL, " ");
 	if (op == NULL)
 		return;
-	else if (strtok(op, " \n\t")[0] == '#')
+	else if (op[0] == '#')
 		return;
 	i = 0;
 
