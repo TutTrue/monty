@@ -10,7 +10,10 @@ void pstr(stack_t **stack, unsigned int line_number)
 	stack_t *p = *stack;
 
 	if (!p)
+	{
 		printf("\n");
+		return;
+	}
 	while (p)
 	{
 		if (p->n > 0 && p->n <= 127)
