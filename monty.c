@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	file = fopen(argv[1], "rb");
 	if (file == NULL)
 	{
-		fprintf(stderr, "Error: can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	global_data.file = file;
