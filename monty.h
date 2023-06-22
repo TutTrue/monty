@@ -23,9 +23,9 @@
  */
 typedef struct stack_s
 {
-    int n;
-    struct stack_s *prev;
-    struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 
@@ -54,10 +54,10 @@ typedef struct instruction_s
  */
 typedef struct data_s
 {
-        stack_t **stack;
-        char *line;
-        unsigned int line_number;
-        char *str;
+	stack_t **stack;
+	char *line;
+	unsigned int line_number;
+	char *str;
 	FILE *file;
 } Data;
 extern Data global_data;
@@ -73,7 +73,7 @@ void pstr(stack_t **stack, unsigned int line_number);
 /* -------------- helper -------------*/
 void free_stack(stack_t **top);
 void execute_instruction(Data *data);
-int is_digits(char* str);
+int is_digits(char *str);
 /* -------------- arithmetic ops -------------*/
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);

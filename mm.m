@@ -1,7 +1,12 @@
 pall
 push 213124124124 
     push        3
-push 2
+push 3
 push 1
 pall
-asdjaks
+push 3
+pall
+swap
+add
+mul
+pall
