@@ -14,6 +14,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 		free_stack(global_data.stack);
 		fclose(global_data.file);
+		free(global_data.line);
 		exit(EXIT_FAILURE);
 	}
 	if (top->n >= 0 && top->n <= 127)

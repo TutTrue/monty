@@ -14,6 +14,7 @@ void swap(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		free_stack(global_data.stack);
 		fclose(global_data.file);
+		free(global_data.line);
 		exit(EXIT_FAILURE);
 	}
 	temp = (*stack)->n;
