@@ -1,5 +1,5 @@
 #include "monty.h"
-Data global_data;
+Data global_data = {NULL, NULL, 0, NULL, NULL};
 /**
  * main - ...
  * @argc: number of arguments

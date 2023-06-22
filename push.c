@@ -8,7 +8,6 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
-	stack_t **top = stack;
 	int num;
 
 	if (!new_node)
@@ -30,12 +29,14 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	num = atoi(global_data.str);
 	new_node->n = num;
-	if (!*top)
+	new_node->prev = NULL;
+	if (!*stack)
 	{
-		*top = new_node;
+		*stack = new_node;
+		new_node->next = NULL;
 		return;
 	}
-	new_node->next = *top;
-	(*top)->prev = new_node;
-	*top = new_node;
+	new_node->next = *stack;
+	(*stack)->prev = new_node;
+	*stack = new_node;
 }
