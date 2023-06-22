@@ -18,7 +18,7 @@ void push(stack_t **stack, unsigned int line_number)
 		free(global_data.line);
 		exit(EXIT_FAILURE);
 	}
-	if (!atoi(global_data.str) && global_data.str[0] != '0' && is_digits(global_data.str))
+	if (!atoi(global_data.str) && global_data.str[0] != '0')
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_stack(global_data.stack);
