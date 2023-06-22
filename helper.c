@@ -8,6 +8,8 @@ int is_digits(char *str)
 {
 	int i;
 
+	if (str[0] == '-')
+		str++;
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (!isdigit(str[i]))
