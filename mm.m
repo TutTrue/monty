@@ -1,4 +1,4 @@
-swap
+pop
 #pall
 #push 213124124124 
 #    push        3
