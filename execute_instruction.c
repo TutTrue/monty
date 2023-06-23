@@ -1,5 +1,6 @@
 #include "monty.h"
 
+int switch_mode(char *op);
 /**
  * execute_instruction - execute instruction
  * @data: ...
@@ -30,17 +31,9 @@ void execute_instruction(Data *data)
 
 	while (ops[i].opcode && op)
 	{
-		if (strcmp(op, "stack") == 0)
-		{
-			global_data.mode = 'S';
+		if (switch_mode(op))
 			return;
-		}
-		else if (strcmp(op, "queue") == 0)
-		{
-			global_data.mode = 'Q';
-			return;
-		}
-		else if (strcmp(op, ops[i].opcode) == 0)
+		if (strcmp(op, ops[i].opcode) == 0)
 		{
 			if (strcmp(op, "push") == 0 && global_data.mode == 'S')
 			{
@@ -68,4 +61,24 @@ void execute_instruction(Data *data)
 	free(data->line);
 	fclose(data->file);
 	exit(EXIT_FAILURE);
+}
+/**
+ * switch_mode - switch queue to stack or oppest
+ * @op: op code
+ * Return: 1 if succes 0 or not
+ */
+int switch_mode(char *op)
+{
+	if (strcmp(op, "stack") == 0)
+	{
+		global_data.mode = 'S';
+		return (1);
+	}
+	else if (strcmp(op, "queue") == 0)
+	{
+		global_data.mode = 'Q';
+		return (1);
+	}
+	else
+		return (0);
 }

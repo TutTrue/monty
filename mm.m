@@ -10,6 +10,3 @@ push 6
 pall
 add
 pall
-queue
-push 21
-pall
