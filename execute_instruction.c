@@ -31,8 +31,6 @@ void execute_instruction(Data *data)
 
 	while (ops[i].opcode && op)
 	{
-		if (switch_mode(op))
-			return;
 		if (strcmp(op, ops[i].opcode) == 0)
 		{
 			if (strcmp(op, "push") == 0 && global_data.mode == 'S')
@@ -44,7 +42,7 @@ void execute_instruction(Data *data)
 			else if (strcmp(op, "push") == 0 && global_data.mode == 'Q')
 			{
 				data->str = str ? str : "e";
-				ops[++i].f(data->stack, data->line_number);
+				ops[i + 1].f(data->stack, data->line_number);
 				return;
 			}
 			else
@@ -54,6 +52,8 @@ void execute_instruction(Data *data)
 				return;
 			}
 		}
+		if (switch_mode(op))
+			return;
 		i++;
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", data->line_number, op);

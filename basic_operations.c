@@ -80,7 +80,7 @@ void push_end(stack_t **stack, unsigned int line_number)
 		p = p->next;
 	p->next = new_node;
 	new_node->prev = p;
-	new_node = NULL;
+	new_node->next = NULL;
 }
 
 /**
