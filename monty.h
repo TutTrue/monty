@@ -87,7 +87,5 @@ void mod(stack_t **stack, unsigned int line_number);
 /* -------------- logic ops -------------*/
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
-/* -------------- implementions -------------- */
-ssize_t _getline(char **line, size_t *n, FILE *file);
 
 #endif
