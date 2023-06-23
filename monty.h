@@ -58,6 +58,7 @@ typedef struct data_s
 	char *line;
 	unsigned int line_number;
 	char *str;
+	char mode;
 	FILE *file;
 } Data;
 extern Data global_data;
@@ -65,6 +66,7 @@ extern Data global_data;
 
 /* -------------- basic ops -------------*/
 void push(stack_t **stack, unsigned int line_number);
+void push_end(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);

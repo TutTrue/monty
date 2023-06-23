@@ -10,14 +10,15 @@ void execute_instruction(Data *data)
 	char *str, *op;
 
 	instruction_t ops[] = {
-		{"push", push}, {"pall", pall},
-		{"pint", pint}, {"pop", pop},
+		{"push", push}, {"push", push_end},
+		{"pall", pall}, {"pint", pint},
 		{"pchar", pchar}, {"pstr", pstr},
 		{"swap", swap}, {"add", add},
 		{"nop", nop}, {"sub", sub},
 		{"div", _div}, {"mul", mul},
 		{"mod", mod}, {"rotl", rotl},
-		{"rotr", rotr}, {NULL, NULL}
+		{"rotr", rotr}, {"pop", pop},
+		{NULL, NULL}
 	};
 	op = strtok(data->line, " \n\t");
 	str = strtok(NULL, " \n\t");
@@ -29,12 +30,36 @@ void execute_instruction(Data *data)
 
 	while (ops[i].opcode && op)
 	{
-		if (strcmp(op, ops[i].opcode) == 0)
+		if (strcmp(op, "stack") == 0)
 		{
-			data->str = str ? str : "e";
-			ops[i].f(data->stack, data->line_number);
-			/*free(str);*/
+			global_data.mode = 'S';
 			return;
+		}
+		else if (strcmp(op, "queue") == 0)
+		{
+			global_data.mode = 'Q';
+			return;
+		}
+		else if (strcmp(op, ops[i].opcode) == 0)
+		{
+			if (strcmp(op, "push") == 0 && global_data.mode == 'S')
+			{
+				data->str = str ? str : "e";
+				ops[i].f(data->stack, data->line_number);
+				return;
+			}
+			else if (strcmp(op, "push") == 0 && global_data.mode == 'Q')
+			{
+				data->str = str ? str : "e";
+				ops[++i].f(data->stack, data->line_number);
+				return;
+			}
+			else
+			{
+				data->str = str ? str : "e";
+				ops[i].f(data->stack, data->line_number);
+				return;
+			}
 		}
 		i++;
 	}

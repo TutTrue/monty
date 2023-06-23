@@ -1,11 +1,15 @@
-push 213 
-push        3
+queue
+push 1
+push 2
 push 3
-push -1
 pall
-#push 3
-#pall
-#swap
-#add
-#mul
-#pall
+stack
+push 4
+push 5
+push 6
+pall
+add
+pall
+queue
+push 21
+pall
